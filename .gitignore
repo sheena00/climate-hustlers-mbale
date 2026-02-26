@@ -1,0 +1,21 @@
+# Stata log files
+*.log
+*.smcl
+
+# Stata datasets
+*.dta
+*.ster
+
+# Stata graphs
+*.gph
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Output folder
