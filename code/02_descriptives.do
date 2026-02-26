@@ -19,14 +19,13 @@ ttest age_at_migration, by(gender)
 
 *******reason for migration*************************************************
 
+drop mig_extremelyhot mig_extremlycold mig_floods mig_drought mig_landslides mig_hailstones mig_foodinsecurity mig_reducedagricopp mig_livelihoodsloss mig_redcropyields mig_redlivestockprod mig_croppestsdiseases mig_livestockpestdisease mig_declinewateravail mig_highresourcecompetition mig_conflict mig_reducedserviceavail //dropping old migration columns
+
 reshape long mig_, i(index) j(reason) string //creating long dataset since it was a multiselect variable
 keep if mig_ == 1
 replace reason = subinstr(reason, "_num", "", .)
 tab reason
 tab reason gender, col chi2
-
-
-drop mig_extremelyhot mig_extremlycold mig_floods mig_drought mig_landslides mig_hailstones mig_foodinsecurity mig_reducedagricopp mig_livelihoodsloss mig_redcropyields mig_redlivestockprod mig_croppestsdiseases mig_livestockpestdisease mig_declinewateravail mig_highresourcecompetition mig_conflict mig_reducedserviceavail //dropping old migration columns
 
 
 gen collapsed_reason = "" //collapsing into major reasons
